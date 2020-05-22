@@ -96,8 +96,15 @@ public class Simulacion {
 		
 		try {
 			for (int j = 0; j < personas.size(); j++) {
-//			if(personas.size()%30)  se supone que cuando infectados sera 30%
-				throw new ExceptionUnico("contagiado"); 
+				if (personas.get(j) instanceof Infectado) {
+					if(personas.size()>30) {
+						throw new ExceptionUnico("contagiado"); 
+						
+					}
+					
+					
+				}
+          
 			
 			}	
 		} catch (Exception e) {
