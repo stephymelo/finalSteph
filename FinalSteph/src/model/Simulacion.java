@@ -91,6 +91,13 @@ public class Simulacion {
 			personas.remove(a);
 			personas.add(b);
 			
+//			for (int j = 0; j < personas.size(); j++) {
+//				personas.get(j).setInfectado(true);
+//					
+//				
+//			} para hacer que corra el hilo de infectado a recuperado
+		
+			
 		}
 		
 		
