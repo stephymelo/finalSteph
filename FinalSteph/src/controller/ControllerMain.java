@@ -1,6 +1,10 @@
 package controller;
 
 import model.Simulacion;
+
+import java.util.LinkedList;
+
+import model.Contador;
 import processing.core.PApplet;
 
 public class ControllerMain {
@@ -18,7 +22,13 @@ public class ControllerMain {
 	}
 	
 	public void sort() {
+		sim.ordenarLista();
 		
 	}
+	
+	public LinkedList<Contador> contadorList() {
+		return sim.getContadorList();
+	} 
+	
 
 }

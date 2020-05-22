@@ -27,6 +27,9 @@ public class Main extends PApplet {
 	public void draw() {
 		background(255);
 		controller.pintar();
+		for (int i = 0; i < controller.contadorList().size(); i++) {
+			controller.contadorList().get(i).pintar();	
+		}
 		
 	botones();
 	   

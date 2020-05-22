@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 public class Infectado extends Persona {
 	private boolean infectado;
-	public Infectado(PApplet app) {
-		super(app);
+	public Infectado(PApplet app,int posX,int posY) {
+		super(app,posX,posY);
 		
 			      
 			    

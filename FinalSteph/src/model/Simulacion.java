@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 import Exceptionss.ExceptionUnico;
-import myExceptions.Exception1;
 import processing.core.PApplet;
 
 public class Simulacion {
@@ -36,33 +35,36 @@ public class Simulacion {
 				String [] txtSplit = txt[i].split(":"); 
 				int numero=Integer.parseInt(txtSplit[1]);
 				
-				if(txtSplit[0].contentEquals("sanas")) {
+				if(txtSplit[0].toLowerCase().trim().contentEquals("sanas")) {
 					System.out.println("printlo");
 					contadorList.add(new Contador(txtSplit[0],numero,0x7008000,200,10,app));
 					
 					for (int j = 0; j < numero; j++) {
-						Persona s = new Sano(app);
+						Persona s = new Sano(app,(int)app.random(10,500),(int)app.random(10,500));
 						personas.add(s);
 						new Thread(s).start();
 					}
 					
 				}
-                if(txtSplit[0].contentEquals("infectados")) {
+                if(txtSplit[0].toLowerCase().trim().contentEquals("infectados")) {
                 	contadorList.add(new Contador(txtSplit[0],numero,0x7FFF0000,200,10,app));
                 	
                 	for (int j = 0; j < numero; j++) {
-						Persona s = new Infectado(app);
+						Persona s = new Infectado(app,(int)app.random(10,500),(int)app.random(10,500));
 						personas.add(s);
 						new Thread(s).start();
+						
 					}
 					
 				}
-                if(txtSplit[0].contentEquals("recuperados")) {
+                if(txtSplit[0].toLowerCase().trim().contentEquals("recuperados")) {
                 	contadorList.add(new Contador(txtSplit[0],numero,0x70000FF,200,10,app));
                 	for (int j = 0; j < numero; j++) {
-						Persona s = new Recuperado(app);
+						Persona s = new Recuperado(app,(int)app.random(10,500),(int)app.random(10,500));
 						personas.add(s);
 						new Thread(s).start();
+						
+						
 					}
 				}
 				
@@ -94,7 +96,7 @@ public class Simulacion {
 		
 		try {
 			for (int j = 0; j < personas.size(); j++) {
-			if()
+//			if(personas.size()%30)  se supone que cuando infectados sera 30%
 				throw new ExceptionUnico("contagiado"); 
 			
 			}	
@@ -111,13 +113,23 @@ public class Simulacion {
 	
 	
 
-	
+	public void infection() {
+		
+//		 new Thread(personas).start();
+	}
 	
 	
 	public void pintarPersonas() {
 		for (int i = 0; i < personas.size(); i++) {
 			personas.get(i).pintar();
 		}
+		
+		for(Contador c :contadorList) {
+			c.pintar();
+			
+		}
+		
+		
 	}
 	
 	
@@ -134,5 +146,16 @@ public class Simulacion {
 		}
 		
 	}
+	
+	public LinkedList<Contador> getContadorList() {
+		return contadorList;
+	}
+
+	public void setContadorList(LinkedList<Contador> contadorList) {
+		this.contadorList = contadorList;
+	}
+
+	
+
 	
 }

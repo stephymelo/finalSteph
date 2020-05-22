@@ -9,7 +9,7 @@ public abstract class Persona implements Runnable{
 	protected boolean moviendo;
 
 	
-	public Persona (PApplet app) {
+	public Persona (PApplet app,int posX,int posY) {
 		
 		this.app= app; 
 		this.posX= posX; 

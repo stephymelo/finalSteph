@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 public class Sano extends Persona {
 
-	public Sano(PApplet app) {
-		super(app);
+	public Sano(PApplet app,int posX,int posY) {
+		super(app,posX,posY);
 		
 	}
 
