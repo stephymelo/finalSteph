@@ -28,12 +28,19 @@ public class Main extends PApplet {
 		background(255);
 		controller.pintar();
 		
-	
+	botones();
 	   
    
 	
 	}
 	
+	
+	public void botones() {
+		fill(255,240,80);
+		rect(100,400,150,50);
+		fill(0,240,80);
+		rect(350,400,150,50);
+	}
 
 	
 	
