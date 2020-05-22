@@ -18,8 +18,7 @@ public class Main extends PApplet {
 
 	public void setup() {
 		controller=new ControllerMain(this);
-//		new Thread(log).start();
-		
+
 
 		
 	}
