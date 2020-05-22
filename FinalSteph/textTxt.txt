@@ -1,0 +1,3 @@
+sanas:98
+infectados:1
+recuperados:1
