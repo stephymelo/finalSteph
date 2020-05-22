@@ -4,15 +4,17 @@ import processing.core.PApplet;
 
 public class Sano extends Persona {
 
-	public Sano(PApplet app,int posX,int posY,int tamX,int tamY,int color) {
-		super(app, posX, posY, tamX, tamY, color);
-		// TODO Auto-generated constructor stub
+	public Sano(PApplet app) {
+		super(app);
+		
 	}
 
 	@Override
 	public void pintar() {
-		// TODO Auto-generated method stub
+		app.fill(0,255,0);
+		app.ellipse(posX,posY,radio*2,radio*2);
 		
 	}
+
 
 }

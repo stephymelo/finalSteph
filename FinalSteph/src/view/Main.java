@@ -5,7 +5,7 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 	
-
+   private ControllerMain controller;
 	
 	
 	public static void main(String[] args) {
@@ -17,13 +17,16 @@ public class Main extends PApplet {
 	}
 
 	public void setup() {
+		controller=new ControllerMain(this);
+//		new Thread(log).start();
 		
 
 		
 	}
 
 	public void draw() {
-		background(0);
+		background(255);
+		controller.pintar();
 		
 	
 	   

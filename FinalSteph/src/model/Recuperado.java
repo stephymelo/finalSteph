@@ -4,14 +4,14 @@ import processing.core.PApplet;
 
 public class Recuperado extends Persona {
 	
-	public Recuperado(PApplet app,int posX,int posY,int tamX,int tamY,int color) {
-		super(app, posX, posY, tamX, tamY, color);
+	public Recuperado(PApplet app) {
+		super(app);
 		
 	}
 
-	@Override
 	public void pintar() {
-		// TODO Auto-generated method stub
+		app.fill(0,0,255);
+		app.ellipse(posX,posY,radio*2,radio*2);
 		
 	}
 

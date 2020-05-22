@@ -4,18 +4,17 @@ import processing.core.PApplet;
 
 public abstract class Persona implements Runnable{
 	protected PApplet app; 
-	protected int posX, posY,  tamX, tamY, dirX, dirY; 
+	protected int posX, posY,radio, dirX, dirY; 
 	protected int color; 
+	protected boolean moviendo;
 
 	
-	public Persona (PApplet app,int posX,int posY,int tamX,int tamY,int color) {
+	public Persona (PApplet app) {
 		
 		this.app= app; 
 		this.posX= posX; 
 		this.posY= posY; 
-		this.tamX= tamX; 
-		this.tamY= tamY; 
-		this.color= color; 
+		this.radio=7;
 		this.dirX = 1; 
 		this.dirY = 1; 
 	
@@ -23,14 +22,20 @@ public abstract class Persona implements Runnable{
 	}
 	
 	
-	public void pintar() {
-		app.fill(color);
-		app.ellipse(posX,posY,tamX,tamY);
-	}
+	public abstract void pintar();
 	
 	public void run() {
 		
-		
+		while(moviendo) {
+			try {
+				mover();
+				Thread.sleep(20);
+			}catch(InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
 	
 	public void mover() {
@@ -65,25 +70,20 @@ public abstract class Persona implements Runnable{
 	public void setposY(int posY) {
 		this.posY = posY;
 	}
+ 
 
 
-	public int getTamX() {
-		return tamX;
+
+	
+
+
+	public int getRadio() {
+		return radio;
 	}
 
 
-	public void setTamX(int tamX) {
-		this.tamX = tamX;
-	}
-
-
-	public int getTamY() {
-		return tamY;
-	}
-
-
-	public void setTamY(int tamY) {
-		this.tamY = tamY;
+	public void setRadio(int radio) {
+		this.radio = radio;
 	}
 
 
@@ -114,6 +114,16 @@ public abstract class Persona implements Runnable{
 
 	public void setColor(int color) {
 		this.color = color;
+	}
+
+
+	public boolean isMoviendo() {
+		return moviendo;
+	}
+
+
+	public void setMoviendo(boolean moviendo) {
+		this.moviendo = moviendo;
 	}
 	
 	
